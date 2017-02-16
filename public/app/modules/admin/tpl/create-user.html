@@ -1,0 +1,35 @@
+<div class="admin-area">
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#!/admin">
+        <i class="fa fa-user-circle" aria-hidden="true"></i> Users</a>
+    </li>
+  </ul>
+
+  <hr />
+  <h2>Username Search</h2>
+  <form novalidate class="form-inline" style="margin-top:20px;" ng-submit="vm.search()">
+    <div class="form-group">
+      <input class="form-control"
+              placeholder="Type username" ng-model="vm.query">
+        <button type="submit" class="btn btn-default">Search</button>
+    </div>
+  </form>
+
+  <div style="margin-top: 20px;">
+    <h4 ng-show="vm.results.length > 0">
+      Showing {{vm.results.length}} results
+    </h4>
+    <table class="table table-hover" ng-show="vm.results.length > 0">
+      <thead>
+        <th>Name</th>
+        <th>Department</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in vm.results" ng-click="vm.create(user)">
+          <td>{{user.name}}</td>
+          <td>{{user.department}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

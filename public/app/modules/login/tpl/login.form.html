@@ -1,0 +1,46 @@
+<div class="login-form">
+
+  <div class="alert alert-danger" role="alert" ng-show="vm.message">
+  	<strong>Your username/password is invalid. </strong>
+  </div>
+
+<h1 class="main-section-title">Sign in</h1>
+
+<form novalidate ng-submit="vm.processForm(loginForm)" name="loginForm">
+	<div class="form-group"
+       ng-class="{ 'has-error': loginForm.username.$touched && loginForm.username.$invalid}">
+		<label for="username">Username</label>
+		<input type="text"
+					 name="username"
+					 class="form-control"
+					 placeholder="mary jane"
+           required
+           ng-minlength="6"
+					 data-ng-model="vm.user.username">
+
+     <div class="help-block"
+          ng-messages="loginForm.username.$error"
+          ng-show="loginForm.username.$touched">
+       <div ng-messages-include="public/app/modules/login/tpl/messages.html"></div>
+   </div>
+</div>
+
+	<div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid}">
+		<label for="password">Password</label>
+		<input type="password"
+					 name="password"
+					 class="form-control"
+					 placeholder="your windows password"
+           ng-minlength="6"
+           required
+					 data-ng-model="vm.user.password">
+
+   <div class="help-block"
+        ng-messages="loginForm.password.$error"
+        ng-show="loginForm.password.$touched" >
+     <div ng-messages-include="public/app/modules/login/tpl/messages.html"></div>
+   </div>
+	</div>
+	<button class="btn btn-block login-form-btn" type="submit" ng-disabled="loginForm.$invalid">Sign in</button>
+</form>
+</div>

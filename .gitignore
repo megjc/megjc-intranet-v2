@@ -1,0 +1,4 @@
+public/components
+node_modules
+vendor/
+api/Helpers/.env

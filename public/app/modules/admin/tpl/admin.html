@@ -1,0 +1,44 @@
+<div class="admin-area">
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#">
+        <i class="fa fa-user-circle" aria-hidden="true"></i> Users</a>
+    </li>
+  </ul>
+
+  <hr />
+
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active">
+      <a href="#!/admin/users/create">
+          Create User
+      </a>
+    </li>
+  </ul>
+
+  <input class="form-control"
+          placeholder="Filter a user by name or department"
+          ng-model="search"
+          style="margin-top:20px">
+  <div style="margin-top: 20px; margin-bottom:20px;">
+    <table class="table table-hover">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Active</th>
+        <th>Type</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in vm.users | filter:search">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.department}}</td>
+          <td>{{user.active}}</td>
+          <td>{{user.type}}</td>
+          <td><a href>Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

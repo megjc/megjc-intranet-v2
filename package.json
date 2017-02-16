@@ -1,0 +1,42 @@
+{
+  "name": "intranet-v2",
+  "version": "1.0.0",
+  "description": "This repository contains MEGJC's intranet. The main goal of the intranet is to provide staff members a channel/platform to communicate their ideas, keep up to date with internal news and show staff achievements.",
+  "main": "app.js",
+  "dependencies": {
+    "gulp-plumber": "^1.1.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-environments": "^0.1.1",
+    "gulp-inject": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-transform": "^1.0.8",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "run-sequence": "^1.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megjc/megjc-corporate-intranet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megjc/megjc-corporate-intranet/issues"
+  },
+  "homepage": "https://github.com/megjc/megjc-corporate-intranet#readme"
+}
