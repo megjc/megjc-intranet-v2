@@ -5,10 +5,10 @@
         .module('login')
         .service('loginService', loginService);
 
-    loginService.$inject = ['$http', '$location', '$interval', '$rootScope'];
+    loginService.$inject = ['$http', '$location', '$interval', '$rootScope', 'CONFIG'];
 
     /* @ngInject */
-    function loginService($http, $location, $interval, $rootScope) {
+    function loginService($http, $location, $interval, $rootScope, CONFIG) {
       var service = {
           authUser: authUser,
           setToken: setToken,
@@ -28,7 +28,7 @@
 
         function authUser(credentials) {
           return $http
-                    .post('/api/v2/auth', credentials)
+                    .post(CONFIG.api_url + '/api/v2/auth', credentials)
                     .then(function(res){
                        return res
                     }).catch(function(res){
@@ -57,7 +57,7 @@
         function isAuthenticated(token) {
             var config =  {'Authorization' : 'Bearer ' + token }
             return $http
-                .get('/api/v2/token/ack', { headers: config })
+                .get( CONFIG.api_url + '/api/v2/token/ack', { headers: config })
                 .then(function(res){
                   return res.data
                 }).catch(function(res){
@@ -90,7 +90,7 @@
             var config = {'headers': {
                         'Authorization' : 'Bearer ' + sessionStorage.getItem('_uid')
             }}
-            $http.post('/api/v2/auth/token/refresh', {}, config)
+            $http.post(CONFIG.api_url + '/api/v2/auth/token/refresh', {}, config)
                   .then(function(res){
                     if(res.data.status === 400 || res.data.status === 500){
                       $location.path('/login')

@@ -5,10 +5,10 @@
         .module('admin')
         .service('AdminService', AdminService);
 
-    AdminService.$inject = ['$http', 'loginService'];
+    AdminService.$inject = ['$http', 'loginService', 'CONFIG'];
 
     /* @ngInject */
-    function AdminService($http, loginService) {
+    function AdminService($http, loginService, CONFIG) {
         var service = {
           getUsers: getUsers,
           searchLDAP:searchLDAP,
@@ -21,7 +21,7 @@
           var auth_header = _createAuthHeader()
           console.log(user)
           return $http
-                  .post('/api/v2/admin/users', user, { headers: auth_header })
+                  .post(CONFIG.api_url + '/api/v2/admin/users', user, { headers: auth_header })
                   .then(function (res) {
                      return res
                   }).catch(function (error) {
@@ -35,7 +35,7 @@
         function getUsers() {
            var auth_header = _createAuthHeader()
             return $http
-                      .get('/api/v2/admin/users', { headers: auth_header })
+                      .get(CONFIG.api_url + '/api/v2/admin/users', { headers: auth_header })
                       .then(function(res){
                         return res.data
                       }).catch(function(res){
@@ -49,7 +49,7 @@
         function searchLDAP(query) {
           var auth_header = _createAuthHeader()
           return $http
-                    .get('/api/v2/admin/ldap/search?q=' + query, { headers: auth_header })
+                    .get(CONFIG.api_url + '/api/v2/admin/ldap/search?q=' + query, { headers: auth_header })
                     .then(function(res){
                       return res.data
                     }).catch(function(error){

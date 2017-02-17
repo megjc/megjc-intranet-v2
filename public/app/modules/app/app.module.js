@@ -8,7 +8,8 @@
     ]).config(config)
       .run(routeLogin)
       .constant('CONFIG',{
-        "interval": 10000
+        "interval": 10000,
+        "api_url": '/megjc-intranet-v2'
       });
 
     function config($locationProvider, $routeProvider, $httpProvider){
